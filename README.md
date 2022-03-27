@@ -1,5 +1,5 @@
 # Kubernetes-SetUp
-Setting Up Kubernetes Setup in Centos OS.
+**Goal :** Setting Up Kubernetes Setup in all RHEL flavour Linux OS.
 
 
 **Introduction**
@@ -8,24 +8,32 @@ Kubernetes is a container orchestration system that manages containers at scale.
 
 **Note:**
 
-This tutorial uses version 1.14 of Kubernetes, the official supported version at the time of this article’s publication. For up-to-date information on the latest version, please see the current release notes in the official Kubernetes documentation.
+This tutorial uses version 1.23.5 of Kubernetes, the official supported version at the time of this article’s publication. For up-to-date information on the latest version, please see the current release notes in the official Kubernetes documentation.
 
 Kubeadm automates the installation and configuration of Kubernetes components such as the API server, Controller Manager, and Kube DNS. It does not, however, create users or handle the installation of operating-system-level dependencies and their configuration. For these preliminary tasks, it is possible to use a configuration management tool like Ansible or SaltStack. Using these tools makes creating additional clusters or recreating existing clusters much simpler and less error-prone.
 
 In this guide, you will set up a Kubernetes cluster from scratch using Ansible and Kubeadm.
 
 **Prerequisites**
+1 ) Machine with Ansible and Git installed init.
 
-An SSH key pair on your local Linux/macOS/BSD machine. If you haven’t used SSH keys before, you can learn how to set them up by following this
+ 
+If Ansible is not installed on your local machine. For installation instructions, follow the official Ansible installation documentation.
+
+"https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora".
+
+If git is not installed, follow the below GIT installation Documentation.
+
+https://git-scm.com/downloads
+
+
+2 ) An SSH key pair on your local Linux/macOS/BSD machine through which ansible can login into target machines. If you haven’t used SSH keys before, you can learn how to set them up by following this
 "https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys#generating-and-working-with-ssh-keys".
 
-Servers running CentOS 7 with at least 2GB RAM and 2 vCPUs each. You should be able to SSH into each server as the root user with your SSH key pair. Be sure to also add your public key to the centos user’s account on the master node. If you need guidance on adding an SSH key to a particular user account, see this tutorial 
+3 ) Servers running RHEL Linux flavours with at least 2GB RAM and 2 vCPUs each. You should be able to SSH into each server as the root user with your SSH key pair. Be sure that you have ssh-key to master. If you need guidance on adding an SSH key to a particular user account, see this tutorial 
 "https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7".
 
 
-Ansible installed on your local machine. For installation instructions, follow the official Ansible installation documentation.
-
-"https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora".
 
 
 Once after all the prerequisites are okay. You can follow the below steps to create your own K8's cluster over Centos Machine.
@@ -213,6 +221,8 @@ If everthing is done perfectly, You will be able to see the master and worker no
 Make sure the SSH connection is happening from Ansible machine into the master and worker nodes.
 
 If output is as expected, Then your K8's cluster is all set for you.
+  
+**ssh centos@master_ip** to operate the cluster.
 
 **Thanks.**
 **Dasari.**
