@@ -39,28 +39,24 @@ Login into the machine where ansible and git are installed and navigate to /tmp 
 
 Clone the repository into your Machine Where Ansible & Git are Installed.
 
-#git clone https://github.com/dasari97/Kubernetes-SetUp.git
+git clone https://github.com/dasari97/Kubernetes-SetUp.git
 
-#cd Kuberenetes-SetUp
+cd Kuberenetes-SetUp
 
 # **Step 2**
 Update the Machine IP details in the **hosts** file in this repostory. I have taken only one Master machine and 2 worker machines. You can choose as per your requirement. Better to provide the private IP's. If elastic IP are available those can also be used. 
 
 I am using VIM editor. You can choose your fav editor.
 
-#vim hosts
+vim hosts
 
 
-#[masters]
+[masters]\n
+master ansible_host=master-ip-address ansible_user=root
 
-#master ansible_host=master-ip-address ansible_user=root
-
-#[workers]
-
-#worker1 ansible_host=worker-ip-address_1 ansible_user=root
-
-#worker2 ansible_host=worker-ip-address_2 ansible_user=root 
-
+[workers]
+worker1 ansible_host=worker-ip-address_1 ansible_user=root
+worker2 ansible_host=worker-ip-address_2 ansible_user=root 
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
 
