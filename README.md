@@ -16,12 +16,15 @@ In this guide, you will set up a Kubernetes cluster from scratch using Ansible a
 
 **Prerequisites**
 
-An SSH key pair on your local Linux/macOS/BSD machine. If you haven’t used SSH keys before, you can learn how to set them up by following this explanation of how to set up SSH keys on your local machine.
+An SSH key pair on your local Linux/macOS/BSD machine. If you haven’t used SSH keys before, you can learn how to set them up by following this
+"https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys#generating-and-working-with-ssh-keys".
 
-Three servers running CentOS 7 with at least 2GB RAM and 2 vCPUs each. You should be able to SSH into each server as the root user with your SSH key pair. Be sure to also add your public key to the centos user’s account on the master node. If you need guidance on adding an SSH key to a particular user account, see this tutorial on How To Set Up SSH Keys on CentOS7.
+Servers running CentOS 7 with at least 2GB RAM and 2 vCPUs each. You should be able to SSH into each server as the root user with your SSH key pair. Be sure to also add your public key to the centos user’s account on the master node. If you need guidance on adding an SSH key to a particular user account, see this tutorial 
+"https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7".
+
 
 Ansible installed on your local machine. For installation instructions, follow the official Ansible installation documentation.
 
-"https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora"
+"https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora".
 
 
