@@ -51,13 +51,15 @@ I am using VIM editor. You can choose your fav editor.
 #vim hosts
 
 
-[masters]
-master ansible_host=master-ip-address ansible_user=root
+#[masters]
 
-[workers]
-worker1 ansible_host=worker-ip-address_1 ansible_user=root
-worker2 ansible_host=worker-ip-address_2 ansible_user=root 
+#master ansible_host=master-ip-address ansible_user=root
 
+#[workers]
+
+#worker1 ansible_host=worker-ip-address_1 ansible_user=root
+
+#worker2 ansible_host=worker-ip-address_2 ansible_user=root 
 
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
