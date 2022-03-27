@@ -45,7 +45,7 @@ Clone the repository into your Machine Where Ansible & Git are Installed.
 **cd Kuberenetes-SetUp**
 
 # **Step 3**
-Update the Machine IP details in the **hosts** file in this repostory. I have taken only one Master machine and 2 worker machines. You can choose as per your requirement. Better to provide the private IP's. If elastic IP are available those can also be used. 
+Update the Machine IP details in the **hosts** file in **files** directory this repostory. I have taken only one Master machine and 2 worker machines. You can choose as per your requirement. Better to provide the private IP's. If elastic IP are available those can also be used. 
 
 I am using VIM editor. You can choose your fav editor.
 
