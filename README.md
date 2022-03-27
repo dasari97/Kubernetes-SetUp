@@ -51,11 +51,14 @@ I am using VIM editor. You can choose your fav editor.
 vim hosts
 
 
-[masters]\n
+[masters]
+
 master ansible_host=master-ip-address ansible_user=root
 
 [workers]
+
 worker1 ansible_host=worker-ip-address_1 ansible_user=root
+
 worker2 ansible_host=worker-ip-address_2 ansible_user=root 
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
@@ -64,95 +67,124 @@ After entering into the IP's save and quit the hosts file (Press ESC and :wq! in
 
 Execute the below command in /tmp/Kubernetes-SetUp/ directory.
 
-#ansible-playbook -i hosts master.yml
+ansible-playbook -i hosts master.yml
 
-Expected Output : 
+**Expected Output :** 
 
 PLAY [master] ****
 
 TASK [Gathering Facts] ****
+
 ok: [master]
 
 TASK [initialize the cluster] ****
+
 changed: [master]
 
 TASK [create .kube directory] ****
+
 changed: [master]
 
 TASK [copy admin.conf to user's kube config] *****
+
 changed: [master]
 
 TASK [install Pod network] *****
+
 changed: [master]
 
 PLAY RECAP ****
+
 master                     : ok=5    changed=4    unreachable=0    failed=0
 
-If the Output is as shown above, 
-execute the below commands :
+If the Output is as shown above,
 
-#ssh root@master-ip-address 
+execute the below commands one after other:
 
-#kubectl get nodes
+1) ssh root@master-ip-address 
 
-Expected Output: 
+2) kubectl get nodes
+
+**Expected Output: **
 
 Output
+
 NAME      STATUS    ROLES     AGE       VERSION
+
 master    Ready     master    1d        v1.14.0
 
 If everthing is done perfectly, You will be able to see the master machine ready. If not Please verify the above the steps.
+
 Make sure the SSH connection is happening from Ansible machine into the master and worker nodes.
 
 If output is as expected, you can exit from the master machine using 
-#exit
+
+exit
 
 # **Step 4**
 
-#ansible-playbook -i hosts workers.yml
+ansible-playbook -i hosts workers.yml
 
 Expected Output: 
 
 PLAY [master] ****
 
 TASK [get join command] ****
+
 changed: [master]
 
 TASK [set join command] *****
+
 ok: [master]
 
 PLAY [workers] *****
 
 TASK [Gathering Facts] *****
+
 ok: [worker1]
+
 ok: [worker2]
 
 TASK [join cluster] *****
+
 changed: [worker1]
+
 changed: [worker2]
 
 PLAY RECAP *****
+
 master                     : ok=2    changed=1    unreachable=0    failed=0   
+
 worker1                    : ok=2    changed=1    unreachable=0    failed=0  
+
 worker2                    : ok=2    changed=1    unreachable=0    failed=0
 
 
-If the Output is as shown above, 
-execute the below commands :
+If the Output is as shown above,
 
-#ssh root@master-ip-address 
+**execute the below commands :
 
-#kubectl get nodes
+ssh root@master-ip-address 
 
-Expected Output: 
+kubectl get nodes
+
+**Expected Output:**
 
 Output
+
 NAME      STATUS    ROLES     AGE       VERSION
+
 master    Ready     master    1d        v1.14.0
+
 worker1   Ready     <none>    1d        v1.14.0
+
 worker2   Ready     <none>    1d        v1.14.0
 
 If everthing is done perfectly, You will be able to see the master and worker node machines ready. If not Please verify the above the steps.
+
 Make sure the SSH connection is happening from Ansible machine into the master and worker nodes.
 
 If output is as expected, Then your K8's cluster is all set for you.
+
+Thanks.
+Dasari.
