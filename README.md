@@ -33,22 +33,23 @@ Once after all the prerequisites are okay. You can follow the below steps to cre
 # **Step 1**
 
 Login into the machine where ansible and git are installed and navigate to /tmp directory.
-#cd /tmp
+
+**cd /tmp
 
 **Step 2**
 
 Clone the repository into your Machine Where Ansible & Git are Installed.
 
-git clone https://github.com/dasari97/Kubernetes-SetUp.git
+**git clone https://github.com/dasari97/Kubernetes-SetUp.git**
 
-cd Kuberenetes-SetUp
+**cd Kuberenetes-SetUp**
 
 # **Step 2**
 Update the Machine IP details in the **hosts** file in this repostory. I have taken only one Master machine and 2 worker machines. You can choose as per your requirement. Better to provide the private IP's. If elastic IP are available those can also be used. 
 
 I am using VIM editor. You can choose your fav editor.
 
-vim hosts
+**vim hosts**
 
 
 [masters]
@@ -65,9 +66,9 @@ After entering into the IP's save and quit the hosts file (Press ESC and :wq! in
 
 # **Step 3**
 
-Execute the below command in /tmp/Kubernetes-SetUp/ directory.
+Execute the below command in **/tmp/Kubernetes-SetUp/** directory.
 
-ansible-playbook -i hosts master.yml
+**ansible-playbook -i hosts master.yml**
 
 **Expected Output :** 
 
@@ -101,9 +102,9 @@ If the Output is as shown above,
 
 execute the below commands one after other:
 
-1) ssh root@master-ip-address 
+1) **ssh root@master-ip-address** 
 
-2) kubectl get nodes
+2) **kubectl get nodes**
 
 **Expected Output: **
 
@@ -123,9 +124,9 @@ exit
 
 # **Step 4**
 
-ansible-playbook -i hosts workers.yml
+**ansible-playbook -i hosts workers.yml**
 
-Expected Output: 
+**Expected Output: **
 
 PLAY [master] ****
 
@@ -164,9 +165,9 @@ If the Output is as shown above,
 
 **execute the below commands :
 
-ssh root@master-ip-address 
+**ssh root@master-ip-address** 
 
-kubectl get nodes
+**kubectl get nodes**
 
 **Expected Output:**
 
