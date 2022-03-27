@@ -58,10 +58,10 @@
        enabled: yes
        state: started
        
-    - name: Creating User Centos
-      ansible.builtin.user:
-        name: centos
-        shell: /bin/bash
+   - name: Creating User Centos
+     ansible.builtin.user:
+       name: centos
+       shell: /bin/bash
 
 - hosts: master
   become: yes
