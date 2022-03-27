@@ -64,9 +64,10 @@ worker2         ansible_host=worker-ip-address_2          ansible_user=root
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
 
+**Execute** the below **step 4** and **step 5** command in **/tmp/Kubernetes-SetUp/** directory.
+
 # **Step 4**
 
-Execute the below command in **/tmp/Kubernetes-SetUp/** directory.
 
 **ansible-playbook -i hosts master.yml**
 
