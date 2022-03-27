@@ -36,7 +36,7 @@ Login into the machine where ansible and git are installed and navigate to /tmp 
 
 **cd /tmp**
 
-**Step 2**
+# **Step 2**
 
 Clone the repository into your Machine Where Ansible & Git are Installed.
 
@@ -44,7 +44,7 @@ Clone the repository into your Machine Where Ansible & Git are Installed.
 
 **cd Kuberenetes-SetUp**
 
-# **Step 2**
+# **Step 3**
 Update the Machine IP details in the **hosts** file in this repostory. I have taken only one Master machine and 2 worker machines. You can choose as per your requirement. Better to provide the private IP's. If elastic IP are available those can also be used. 
 
 I am using VIM editor. You can choose your fav editor.
@@ -54,17 +54,17 @@ I am using VIM editor. You can choose your fav editor.
 
 [masters]
 
-master ansible_host=master-ip-address ansible_user=root
+master          ansible_host=master-ip-address          ansible_user=root
 
 [workers]
 
-worker1 ansible_host=worker-ip-address_1 ansible_user=root
+worker1         ansible_host=worker-ip-address_1          ansible_user=root
 
-worker2 ansible_host=worker-ip-address_2 ansible_user=root 
+worker2         ansible_host=worker-ip-address_2          ansible_user=root 
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
 
-# **Step 3**
+# **Step 4**
 
 Execute the below command in **/tmp/Kubernetes-SetUp/** directory.
 
@@ -72,31 +72,31 @@ Execute the below command in **/tmp/Kubernetes-SetUp/** directory.
 
 **Expected Output :** 
 
-PLAY [master] ****
+PLAY          [master]          ****
 
-TASK [Gathering Facts] ****
+TASK          [Gathering Facts]          ****
 
 ok: [master]
 
-TASK [initialize the cluster] ****
+TASK          [initialize the cluster]          ****
 
 changed: [master]
 
-TASK [create .kube directory] ****
+TASK          [create .kube directory]          ****
 
 changed: [master]
 
-TASK [copy admin.conf to user's kube config] *****
+TASK          [copy admin.conf to user's kube config]          *****
 
 changed: [master]
 
-TASK [install Pod network] *****
+TASK          [install Pod network]          *****
 
 changed: [master]
 
-PLAY RECAP ****
+PLAY          RECAP          ****
 
-master                     : ok=5    changed=4    unreachable=0    failed=0
+master                     : ok=5              changed=4              unreachable=0              failed=0
 
 If the Output is as shown above,
 
@@ -106,80 +106,93 @@ execute the below commands one after other:
 
 2) **kubectl get nodes**
 
+
+
+
 **Expected Output: **
 
 Output
 
-NAME      STATUS    ROLES     AGE       VERSION
+NAME                STATUS              ROLES               AGE                 VERSION
 
-master    Ready     master    1d        v1.14.0
+master              Ready               master              1d                  v1.14.0
+
+
 
 If everthing is done perfectly, You will be able to see the master machine ready. If not Please verify the above the steps.
 
 Make sure the SSH connection is happening from Ansible machine into the master and worker nodes.
 
-If output is as expected, you can exit from the master machine using 
+If output is as expected, you can exit from the master machine using :
 
-exit
+**exit**
 
-# **Step 4**
+
+# **Step 5**
 
 **ansible-playbook -i hosts workers.yml**
 
+
+
 **Expected Output: **
 
-PLAY [master] ****
+PLAY          [master]          ****
 
-TASK [get join command] ****
+TASK          [get join command]          ****
 
 changed: [master]
 
-TASK [set join command] *****
+TASK          [set join command]          *****
 
 ok: [master]
 
-PLAY [workers] *****
+PLAY          [workers]          *****
 
-TASK [Gathering Facts] *****
+TASK          [Gathering Facts]          *****
 
 ok: [worker1]
 
 ok: [worker2]
 
-TASK [join cluster] *****
+TASK          [join cluster]          *****
 
 changed: [worker1]
 
 changed: [worker2]
 
-PLAY RECAP *****
+PLAY          RECAP          *****
 
-master                     : ok=2    changed=1    unreachable=0    failed=0   
+master                     : ok=2              changed=1              unreachable=0              failed=0   
 
-worker1                    : ok=2    changed=1    unreachable=0    failed=0  
+worker1                    : ok=2              changed=1              unreachable=0              failed=0  
 
-worker2                    : ok=2    changed=1    unreachable=0    failed=0
+worker2                    : ok=2              changed=1              unreachable=0              failed=0
 
 
 If the Output is as shown above,
 
-**execute the below commands :
+
+execute the below commands :
 
 **ssh root@master-ip-address** 
 
 **kubectl get nodes**
 
+
+
 **Expected Output:**
 
 Output
 
-NAME      STATUS    ROLES     AGE       VERSION
+NAME                STATUS              ROLES               AGE                 VERSION
 
-master    Ready     master    1d        v1.14.0
+master              Ready               master              1d                  v1.14.0
 
-worker1   Ready     <none>    1d        v1.14.0
+worker1             Ready               <none>              1d                  v1.14.0
 
-worker2   Ready     <none>    1d        v1.14.0
+worker2             Ready               <none>              1d                  v1.14.0
+  
+
 
 If everthing is done perfectly, You will be able to see the master and worker node machines ready. If not Please verify the above the steps.
 
@@ -187,5 +200,5 @@ Make sure the SSH connection is happening from Ansible machine into the master a
 
 If output is as expected, Then your K8's cluster is all set for you.
 
-Thanks.
-Dasari.
+**Thanks.**
+**Dasari.**
