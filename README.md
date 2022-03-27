@@ -64,12 +64,25 @@ worker2         ansible_host=worker-ip-address_2          ansible_user=root
 
 After entering into the IP's save and quit the hosts file (Press ESC and :wq! in VI/VIM editor to save and quit).
 
-**Execute** the below **step 4** and **step 5** command in **/tmp/Kubernetes-SetUp/** directory.
+**Execute** the below **step 4** , **step 5** and **step 6** command in **/tmp/Kubernetes-SetUp/** directory.
 
 # **Step 4**
 
+**ansible-playbook -i hosts files/kube-dependencies.yml**
 
-**ansible-playbook -i hosts master.yml**
+**Expected Output**
+
+PLAY RECAP ****
+
+master                     : ok=9    changed=5    unreachable=0    failed=0   
+
+worker1                    : ok=7    changed=5    unreachable=0    failed=0  
+
+worker2                    : ok=7    changed=5    unreachable=0    failed=0 
+
+# **Step 5**
+
+**ansible-playbook -i hosts files/master.yml**
 
 **Expected Output :** 
 
@@ -129,9 +142,9 @@ If output is as expected, you can exit from the master machine using :
 **exit**
 
 
-# **Step 5**
+# **Step 6**
 
-**ansible-playbook -i hosts workers.yml**
+**ansible-playbook -i hosts files/workers.yml**
 
 
 
