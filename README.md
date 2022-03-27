@@ -34,7 +34,7 @@ Once after all the prerequisites are okay. You can follow the below steps to cre
 
 Login into the machine where ansible and git are installed and navigate to /tmp directory.
 
-**cd /tmp
+**cd /tmp**
 
 **Step 2**
 
