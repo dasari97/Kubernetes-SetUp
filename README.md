@@ -40,6 +40,7 @@ Login into the machine where ansible and git are installed and navigate to /tmp 
 Clone the repository into your Machine Where Ansible & Git are Installed.
 
 #git clone https://github.com/dasari97/Kubernetes-SetUp.git
+
 #cd Kuberenetes-SetUp
 
 # **Step 2**
@@ -48,6 +49,8 @@ Update the Machine IP details in the **hosts** file in this repostory. I have ta
 I am using VIM editor. You can choose your fav editor.
 
 #vim hosts
+
+
 [masters]
 master ansible_host=master-ip-address ansible_user=root
 
